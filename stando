@@ -766,7 +766,7 @@ end)
 
 game.Players[StandOwner].Chatted:Connect(function(msg)
     if msg == ("Save!") then
-        noclip = false
+        noclip = true
         Block = false
         mimic = false
         vanish = false
@@ -774,15 +774,17 @@ game.Players[StandOwner].Chatted:Connect(function(msg)
         barragepos = false
         killnear = false
         barragepunch = false
-        follow = false
+        follow = true
         evolvefollow = false
         game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
 
-        -- Declare the function that will check and handle the K.O. value
-        local function handleKO()
+        -- Run an indefinite loop
+        while true do
             -- Check if the K.O. value is true
             if game.Players[StandOwner].Character.BodyEffects["K.O"].Value == true then
                 -- Perform the actions to save the player
+				follow = false
+				noclip = false
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[StandOwner].Character.UpperTorso.Position) * CFrame.new(0,1,0)
                 wait(.4)
                 game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
@@ -791,15 +793,13 @@ game.Players[StandOwner].Chatted:Connect(function(msg)
                 wait(1.5)
                 game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
             end
-        end
 
-        -- Continuously call the handleKO function while the K.O. value is true
-        while game.Players[StandOwner].Character.BodyEffects["K.O"].Value == true do
-            handleKO()
-            wait()
+            -- Wait for a short period of time before checking the K.O. value again
+            wait(0.5)
         end
     end
 end)
+
 
 
 game.Players[StandOwner].Chatted:Connect(function(msg)
