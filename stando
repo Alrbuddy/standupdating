@@ -787,14 +787,14 @@ game.Players[StandOwner].Chatted:Connect(function(msg)
 				follow = false
 				noclip = false
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[StandOwner].Character.UpperTorso.Position) * CFrame.new(0,1,0)
-                wait(.2)
+                wait(.3)
                 game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
-                wait(.2)
+                wait(.3)
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-484.67132568359, 41.499858856201, -100.71377563477)
             end
 
             -- Wait for a short period of time before checking the K.O. value again
-            wait(0.2)
+            wait(0.3)
         end
     end
 end)
