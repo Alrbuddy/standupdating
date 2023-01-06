@@ -777,6 +777,7 @@ game.Players[StandOwner].Chatted:Connect(function(msg)
         follow = true
         evolvefollow = false
         game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+		local A_1 = "Turned On AutoSave, I'll Be protecting you In the background" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
 
         -- Run an indefinite loop
         while true do
