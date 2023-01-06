@@ -795,7 +795,7 @@ game.Players[StandOwner].Chatted:Connect(function(msg)
             end
 
             -- Wait for a short period of time before checking the K.O. value again
-            wait(0.5)
+            wait(0.1)
         end
     end
 end)
